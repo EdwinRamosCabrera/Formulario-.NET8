@@ -1,0 +1,48 @@
+@model List<Contacto>
+@{
+    ViewData["Title"] = "Lista de Contactos";
+}
+
+<div>
+    <h1 class="display-5"><b>@ViewData["Title"]</b></h1>
+    <a href="@Url.Action("CreateContacto", "Contacto")" class="btn btn-primary">Crear Contacto</a>
+</div>
+<br>
+<div class="text-center">
+    @if(Model.Count == 0)
+    {
+        <div class="alert alert-warning">
+            <p class="">No hay contactos aún</p>
+        </div>
+    } else 
+    
+    {
+        <table class="table" style="width: 80%;">
+            <thead>
+                <tr>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Género</th>
+                    <th>Ocupación</th>
+                    <th>Mensaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Gender</td>
+                        <td>@item.Ocupation</td>
+                        <td>@item.Comment</td>
+                    </tr>
+                }  
+            </tbody>
+        </table>
+    } 
+</div>

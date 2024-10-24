@@ -1,0 +1,63 @@
+@model Contacto
+@{
+    ViewData["Title"] = "Creación de Contacto";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1 class="text-center">@ViewData["Title"]</h1>
+            <form method="post">
+                <div class="form-group" asp-controller="Contacto" asp-action="CreateContacto">
+                    <label asp-for="Name">Nombres:</label>
+                    <input asp-for="Name" class="form-control" autofocus />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName">Apellidos:</label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Correo:</label>
+                    <input asp-for="Email" class="form-control" placeholder="ejemplo@ejemplo.com" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone">Telefono:</label>
+                    <input asp-for="Phone" class="form-control" placeholder="987654321" maxlength="9" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <p>Género:</p>
+                    <input type="radio" asp-for="Gender" value="Masculino"/>
+                    <label asp-for="Gender">Masculino:</label>
+                    <input type="radio" asp-for="Gender" value="Femenino"/>
+                    <label asp-for="Gender">Femenino:</label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Ocupation">Ocupación:</label>
+                    <select asp-for="Ocupation">
+                        <option value="">--Elige una opción--</option>
+                        <option value="Estudiante">Estudiante</option>
+                        <option value="Egresado">Egresado</option>
+                        <option value="Técnico">Técnico</option>
+                        <option value="Docente">Docente</option>
+                        <option value="Empresario">Empresario</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Comment">Mensaje:</label>
+                    <textarea asp-for="Comment" class="form-control"></textarea>
+                    <span asp-validation-for="Comment" class="text-danger"></span>
+                </div>
+                <br>
+                <div class="form-group">
+                    <button class="btn btn-primary">Crear</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+</div>
